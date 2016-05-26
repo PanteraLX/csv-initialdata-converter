@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="parse.csv" class="parseCSV" />
+        <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem" />
+        <service id="app.command.convert_command" class="AppBundle\Command\ConvertCommand">
+            <argument type="service" id="parse.csv" />
+            <argument type="service" id="filesystem" />
+        </service>
+    </services>
+</container>
