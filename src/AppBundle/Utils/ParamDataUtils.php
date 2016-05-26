@@ -19,7 +19,7 @@ class ParamDataUtils extends AbstractUtils
     /**
      * @var string
      */
-    private $baseUrl = "http://localhost/";
+    private $baseUrl;
 
     /**
      * @var string
@@ -45,6 +45,8 @@ class ParamDataUtils extends AbstractUtils
         $this->collection = empty($this->collection)
             ? $this->questionHelper->ask($this->input, $this->output, $question)
             : $this->collection;
+
+        $this->baseUrl = $this->input->getOption('base-url') ?: 'http://localhost/';
 
         return sprintf("---\ntarget: %s%s%s\n---\n", $this->baseUrl, $this->collection, $data['id']);
     }

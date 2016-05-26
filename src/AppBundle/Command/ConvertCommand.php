@@ -72,6 +72,12 @@ class ConvertCommand extends ContainerAwareCommand
                 'ah',
                 InputOption::VALUE_NONE,
                 'Add initialdata header'
+            )
+            ->addOption(
+                'base-url',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Base URL to add to references in param data'
             );
     }
 
